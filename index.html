@@ -38,11 +38,28 @@ button {
         <h2 id="m"><h2>
         <button onclick="owned[6] += 1;burp(100000);">buy empire (owned by nicolas and charlotte) (1000000 equ)</button>
         <h2 id="e"><h2>
+        <button onclick="if(confirm("reset?")){reset()}">
         <script>
             var numba = parseInt(getCookie("equper"), 10);
             var equ = parseInt(getCookie("equ"), 10);
             var owned = [parseInt(getCookie("w"), 10), parseInt(getCookie("c"), 10), parseInt(getCookie("s"), 10), parseInt(getCookie("f"), 10), parseInt(getCookie("b"), 10), parseInt(getCookie("m"), 10), parseInt(getCookie("e"), 10)]
             display();
+            function reset() {
+            document.cookie = "w=0; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+                document.cookie = "c=0; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+                document.cookie = "s=0; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+                document.cookie = "f=0; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+                document.cookie = "b=0; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+                document.cookie = "m=0; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+                document.cookie = "e=0; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+                document.cookie = "equ=0; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+                    document.cookie = "equper=0; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+            numba = parseInt(getCookie("equper"), 10);
+            equ = parseInt(getCookie("equ"), 10);
+            owned = [parseInt(getCookie("w"), 10), parseInt(getCookie("c"), 10), parseInt(getCookie("s"), 10), parseInt(getCookie("f"), 10), parseInt(getCookie("b"), 10), parseInt(getCookie("m"), 10), parseInt(getCookie("e"), 10)]
+            display()
+            
+            }
             function display() {
             document.getElementById("w").innerHTML = "typewriters: " + owned[0]
             document.getElementById("c").innerHTML = "computers: " + owned[1]
@@ -58,6 +75,8 @@ button {
                 document.cookie = "b="+owned[4]+"; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
                 document.cookie = "m="+owned[5]+"; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
                 document.cookie = "e="+owned[6]+"; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+                document.getElementById("eq").innerHTML = "equ: " + equ
+                document.getElementById("income").innerHTML = "equ per: " + numba
             }
               function getCookie(cname) {
   let name = cname + "=";
