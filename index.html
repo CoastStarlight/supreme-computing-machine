@@ -1,6 +1,24 @@
 <html>
 <body>
-<button OnClick='alert(document.cookie)'>show da coookies</button>
+<script>
+  function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+  
+</script>
+<button OnClick='alert(getCookie("equ")'>show da coookies</button>
 <button OnClick='document.cookie = "equ=CoastStarlight; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";'>make cookie</button>
 <button OnClick='document.cookie = "equ=; expires=Thu, 18 Dec 1970 12:00:00 UTC; path=/";'>delete cookie</button>
 </body>
