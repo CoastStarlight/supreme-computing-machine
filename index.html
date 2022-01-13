@@ -23,7 +23,7 @@ button {
     <body>
         <h2 id="eq">equ: 0<h2>
         <button onclick="add();">equ</button>
-        <h2 id="income">equ per: <h2>
+        <h2 id="income">equ per: 5<h2>
         <button onclick="owned[0] += 1;burp(1);">buy type writer (10 equ)</button>
         <h2 id="w"><h2>
         <button onclick="owned[1] += 1;burp(5);">buy computer (50 equ)</button>
@@ -39,9 +39,9 @@ button {
         <button onclick="owned[6] += 1;burp(100000);">buy empire (owned by nicolas and charlotte) (1000000 equ)</button>
         <h2 id="e"><h2>
         <script>
-            var numba = 5;
-            var equ = 0;
-            var owned = [0, 0, 0, 0, 0, 0, 0]
+            var numba = parseInt(getCookie("equper"), 10);
+            var equ = parseInt(getCookie("equ"), 10);
+            var owned = [parseInt(getCookie("w"), 10), parseInt(getCookie("c"), 10), parseInt(getCookie("s"), 10), parseInt(getCookie("f"), 10), parseInt(getCookie("b"), 10), parseInt(getCookie("m"), 10), parseInt(getCookie("e"), 10)]
             display();
             function display() {
             document.getElementById("w").innerHTML = "typewriters: " + owned[0]
@@ -51,6 +51,13 @@ button {
             document.getElementById("b").innerHTML = "companies: " + owned[4]
                 document.getElementById("m").innerHTML = "stock markets: " + owned[5]
                     document.getElementById("e").innerHTML = "empires: " + owned[6]
+                document.cookie = "w="+owned[0]+"; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+                document.cookie = "c="+owned[1]+"; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+                document.cookie = "s="+owned[2]+"; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+                document.cookie = "f="+owned[3]+"; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+                document.cookie = "b="+owned[4]+"; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+                document.cookie = "m="+owned[5]+"; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+                document.cookie = "e="+owned[6]+"; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
             }
               function getCookie(cname) {
   let name = cname + "=";
