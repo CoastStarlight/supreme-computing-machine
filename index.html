@@ -1,7 +1,58 @@
 <html>
-<body>
-<script>
-  function getCookie(cname) {
+    <head>
+        <title>math clicker</title>
+        <style>
+            h2 {
+        font-family: verdana;
+    }
+button {
+  background-color: lime;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-family: verdana;
+}
+        </style>
+        </head>
+    <body>
+        <h2 id="eq">equ: 0<h2>
+        <button onclick="add();">equ</button>
+        <h2 id="income">equ per: <h2>
+        <button onclick="owned[0] += 1;burp(1);">buy type writer (10 equ)</button>
+        <h2 id="w"><h2>
+        <button onclick="owned[1] += 1;burp(5);">buy computer (50 equ)</button>
+        <h2 id="c"><h2>
+        <button onclick="owned[2] += 1;burp(10);">buy server (100 equ)</button>
+        <h2 id="s"><h2>
+        <button onclick="owned[3] += 1;burp(50);">buy factory (500 equ)</button>
+        <h2 id="f"><h2>
+        <button onclick="owned[4] += 1;burp(100);">buy company (1000 equ)</button>
+        <h2 id="b"><h2>
+        <button onclick="owned[5] += 1;burp(500);">buy stock market (5000 equ)</button>
+        <h2 id="m"><h2>
+        <button onclick="owned[6] += 1;burp(100000);">buy empire (owned by nicolas and charlotte) (1000000 equ)</button>
+        <h2 id="e"><h2>
+        <script>
+            var numba = 5;
+            var equ = 0;
+            var owned = [0, 0, 0, 0, 0, 0, 0]
+            display();
+            function display() {
+            document.getElementById("w").innerHTML = "typewriters: " + owned[0]
+            document.getElementById("c").innerHTML = "computers: " + owned[1]
+            document.getElementById("s").innerHTML = "server: " + owned[2]
+            document.getElementById("f").innerHTML = "factories: " + owned[3]
+            document.getElementById("b").innerHTML = "companies: " + owned[4]
+                document.getElementById("m").innerHTML = "stock markets: " + owned[5]
+                    document.getElementById("e").innerHTML = "empires: " + owned[6]
+            }
+              function getCookie(cname) {
   let name = cname + "=";
   let decodedCookie = decodeURIComponent(document.cookie);
   let ca = decodedCookie.split(';');
@@ -16,10 +67,32 @@
   }
   return "";
 }
-  
-</script>
-<button OnClick='alert(getCookie("equ"))'>show da coookies</button>
-<button OnClick='document.cookie = "equ=CoastStarlight; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";'>make cookie</button>
-<button OnClick='document.cookie = "equ=; expires=Thu, 18 Dec 1970 12:00:00 UTC; path=/";'>delete cookie</button>
-</body>
+            function add() {
+                var x = Math.ceil(Math.random() * 12)
+                display()
+                var y = Math.ceil(Math.random() * 12)
+                var ask = prompt("what is " + x + " x " + y)
+                if(ask == x * y && ask !== null) {
+                equ = equ + numba
+            document.getElementById("eq").innerHTML = "equ: " + equ
+                    document.cookie = "equ="+equ+"; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+                    document.cookie = "equper="+numba+"; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+                } else {
+                 alert("no")   
+                }
+                
+            }
+            function burp(n) {
+                if(equ >= n * 10) {
+                equ = equ - n * 10
+                numba += n
+                    display();
+                document.getElementById("eq").innerHTML = "equ: " + equ
+                document.getElementById("income").innerHTML = "equ per: " + numba
+                } else {
+                alert("not enough money")
+                }
+                }
+            </script>
+    </body>
 </html>
